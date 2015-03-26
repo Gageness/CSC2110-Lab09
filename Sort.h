@@ -73,32 +73,32 @@ void Sort<T>::_quickSort(T** items, int first, int last, int (*compare) (T* one,
 template < class T >
 int Sort<T>::partition(T** items, int first, int last, int (*compare) (T* one, T* two))
 {
-   //DO THIS
-   //complete the partition method (Lomuto partition)
+    //DO THIS
+    //complete the partition method (Lomuto partition)
 
-   //temp is used to swap elements in the array
-   T* temp; 
+    //temp is used to swap elements in the array
+    T* temp; 
 
-   //initially, choosePivot does nothing           
-   choosePivot(items, first, last); 
+    //initially, choosePivot does nothing           
+    choosePivot(items, first, last); 
+	int lastS1 = items[first];
+	
+	for (int i = first + 1; i <= last; i++) {
+	
+		if((*compare)(items[i], pivot) < 0) {
+		
+			lastS1 + 1;
+			temp = items[i];
+			items[i] = items[lastS1];
+			items[lastS1] = temp;
+		}
+	}
 
+	temp = items[first];
+	items[first] = items[lastS1];
+	items[lastS1] = temp;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
+	return lastS1;
 }
 
 template < class T >
